@@ -1,0 +1,13 @@
+# custom helmfile name, 3 replicas
+
+repositories:
+ - name: grafana
+   url: https://grafana.github.io/helm-charts
+
+releases:
+- name: grafana
+  namespace: grafana
+  chart: grafana/grafana
+  set:
+  - name: replicas
+    value: 3

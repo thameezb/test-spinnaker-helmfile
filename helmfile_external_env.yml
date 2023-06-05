@@ -1,0 +1,14 @@
+# custom helmfile name, uses different values file (2 replicas)
+environments:
+  test:
+    values:
+    - env/test.yml
+---
+repositories:
+ - name: grafana
+   url: https://grafana.github.io/helm-charts
+
+releases:
+- name: grafana
+  namespace: grafana
+  chart: grafana/grafana
