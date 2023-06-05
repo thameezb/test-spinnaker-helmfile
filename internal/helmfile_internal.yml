@@ -9,4 +9,4 @@ releases:
     chart: ./chart
     namespace: test
     values:
-    - ./envs/{{ .Environment.Name }}/values.yaml
+    - ./envs/{{ .Environment.Name }}/values.yml
