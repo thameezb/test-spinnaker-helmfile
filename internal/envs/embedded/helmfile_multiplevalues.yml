@@ -5,5 +5,5 @@ releases:
     chart: ../../chart
     namespace: test
     values:
-    - ../helmfile/values.yaml
+    - ../helmfile/values.yml
     - values.yml
