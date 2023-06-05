@@ -1,0 +1,11 @@
+# custom helmfile name, deploys CRDs and three replicas
+releases:
+  - name: test
+    atomic: true
+    chart: ./chart
+    namespace: test
+    set:
+      - name: replicas
+        value: 3
+      - name: deployCR
+        value: true

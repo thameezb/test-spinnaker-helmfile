@@ -1,0 +1,9 @@
+{{- if .Values.deployCR }}
+apiVersion: thameezb.com/v1alpha1
+kind: MyTest
+metadata:
+ name: test-nginx-cr
+spec:
+ appId: test-nginx-cr
+ replicas: 3
+{{- end }}

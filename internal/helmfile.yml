@@ -1,0 +1,7 @@
+# default helmfile name, default values
+
+releases:
+  - name: test
+    atomic: true
+    chart: ./chart
+    namespace: test

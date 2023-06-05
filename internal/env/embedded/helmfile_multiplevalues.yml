@@ -1,0 +1,9 @@
+# custom helmfile name, uses different values file (5 replicas)
+releases:
+  - name: test
+    atomic: true
+    chart: ../../chart
+    namespace: test
+    values:
+    - ../helmfile/values.yaml
+    - values.yml

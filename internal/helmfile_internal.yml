@@ -1,0 +1,12 @@
+# custom helmfile name, uses different values file (2 replicas)
+
+environments:
+  helmfile:
+---
+releases:
+  - name: test
+    atomic: true
+    chart: ./chart
+    namespace: test
+    values:
+    - ./envs/{{ .Environment.Name }}/values.yaml
