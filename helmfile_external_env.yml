@@ -1,8 +1,6 @@
 # custom helmfile name, uses different values file (2 replicas)
 environments:
   test:
-    values:
-    - env/test.yml
 ---
 repositories:
  - name: grafana
@@ -12,3 +10,5 @@ releases:
 - name: grafana
   namespace: grafana
   chart: grafana/grafana
+  values:
+    - ./env/{{ .Environment.Name }}.yml
