@@ -1,0 +1,555 @@
+{
+  "keepWaitingPipelines": false,
+  "lastModifiedBy": "anonymous",
+  "limitConcurrent": true,
+  "schema": "1",
+  "spelEvaluator": "v4",
+  "stages": [
+    {
+      "comments": "This should not throw an error",
+      "completeOtherBranchesThenFail": true,
+      "continuePipeline": false,
+      "expectedArtifacts": [
+        {
+          "defaultArtifact": {
+            "customKind": true,
+            "id": "5c9124b3-7bc4-407f-9c27-fe85b67dbd95"
+          },
+          "displayName": "embedded-default",
+          "id": "c9f9d301-bacc-4b5e-b0e4-0923dc2f8da1",
+          "matchArtifact": {
+            "artifactAccount": "embedded-artifact",
+            "customKind": false,
+            "id": "632c5792-8f15-4200-8e81-b636b5a47188",
+            "name": "grafana",
+            "type": "embedded/base64"
+          },
+          "useDefaultArtifact": false,
+          "usePriorArtifact": false
+        }
+      ],
+      "failPipeline": false,
+      "inputArtifacts": [
+        {
+          "account": "embedded-artifact",
+          "artifact": {
+            "artifactAccount": "embedded-artifact",
+            "id": "0f28a58c-a8cb-47dd-8984-d32393311cb4",
+            "name": "helmfile.yml",
+            "reference": "cmVwb3NpdG9yaWVzOgogLSBuYW1lOiBncmFmYW5hCiAgIHVybDogaHR0cHM6Ly9ncmFmYW5hLmdpdGh1Yi5pby9oZWxtLWNoYXJ0cwoKcmVsZWFzZXM6Ci0gbmFtZTogZ3JhZmFuYQogIG5hbWVzcGFjZTogZ3JhZmFuYQogIGNoYXJ0OiBncmFmYW5hL2dyYWZhbmE=",
+            "type": "embedded/base64"
+          }
+        }
+      ],
+      "name": "Bake-embedded-artifact-defaults",
+      "outputName": "grafana",
+      "overrides": {},
+      "refId": "1",
+      "requisiteStageRefIds": ["3"],
+      "templateRenderer": "HELMFILE",
+      "type": "bakeManifest"
+    },
+    {
+      "account": "kind",
+      "cloudProvider": "kubernetes",
+      "manifests": [
+        {
+          "apiVersion": "v1",
+          "kind": "Namespace",
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/managed-by": "spinnaker",
+              "kubernetes.io/metadata.name": "grafana"
+            },
+            "name": "grafana"
+          }
+        }
+      ],
+      "moniker": {
+        "app": "test-helmfile-deploy"
+      },
+      "name": "Create Namespace",
+      "refId": "3",
+      "requisiteStageRefIds": [],
+      "skipExpressionEvaluation": false,
+      "source": "text",
+      "trafficManagement": {
+        "enabled": false,
+        "options": {
+          "enableTraffic": false,
+          "services": []
+        }
+      },
+      "type": "deployManifest"
+    },
+    {
+      "comments": "This should not throw an error",
+      "completeOtherBranchesThenFail": false,
+      "continuePipeline": true,
+      "expectedArtifacts": [
+        {
+          "defaultArtifact": {
+            "customKind": true,
+            "id": "5c9124b3-7bc4-407f-9c27-fe85b67dbd95"
+          },
+          "displayName": "embedded-namespace",
+          "id": "c9f9d301-bacc-4b5e-b0e4-0923dc2f8da1",
+          "matchArtifact": {
+            "artifactAccount": "embedded-artifact",
+            "customKind": false,
+            "id": "632c5792-8f15-4200-8e81-b636b5a47188",
+            "name": "grafana",
+            "type": "embedded/base64"
+          },
+          "useDefaultArtifact": false,
+          "usePriorArtifact": false
+        }
+      ],
+      "failPipeline": false,
+      "inputArtifacts": [
+        {
+          "account": "embedded-artifact",
+          "artifact": {
+            "artifactAccount": "embedded-artifact",
+            "id": "0f28a58c-a8cb-47dd-8984-d32393311cb4",
+            "name": "helmfile.yml",
+            "reference": "cmVwb3NpdG9yaWVzOgogLSBuYW1lOiBncmFmYW5hCiAgIHVybDogaHR0cHM6Ly9ncmFmYW5hLmdpdGh1Yi5pby9oZWxtLWNoYXJ0cwoKcmVsZWFzZXM6Ci0gbmFtZTogZ3JhZmFuYQogIG5hbWVzcGFjZTogZ3JhZmFuYQogIGNoYXJ0OiBncmFmYW5hL2dyYWZhbmE=",
+            "type": "embedded/base64"
+          }
+        }
+      ],
+      "name": "Bake-embedded-artifact-namespace",
+      "namespace": "i-should-fail",
+      "outputName": "grafana",
+      "overrides": {},
+      "refId": "4",
+      "requisiteStageRefIds": ["3"],
+      "templateRenderer": "HELMFILE",
+      "type": "bakeManifest"
+    },
+    {
+      "comments": "This should not throw an error",
+      "completeOtherBranchesThenFail": true,
+      "continuePipeline": false,
+      "expectedArtifacts": [
+        {
+          "defaultArtifact": {
+            "customKind": true,
+            "id": "5c9124b3-7bc4-407f-9c27-fe85b67dbd95"
+          },
+          "displayName": "embedded-default",
+          "id": "c9f9d301-bacc-4b5e-b0e4-0923dc2f8da1",
+          "matchArtifact": {
+            "artifactAccount": "embedded-artifact",
+            "customKind": false,
+            "id": "632c5792-8f15-4200-8e81-b636b5a47188",
+            "name": "grafana",
+            "type": "embedded/base64"
+          },
+          "useDefaultArtifact": false,
+          "usePriorArtifact": false
+        }
+      ],
+      "failPipeline": false,
+      "inputArtifacts": [
+        {
+          "account": "embedded-artifact",
+          "artifact": {
+            "artifactAccount": "embedded-artifact",
+            "id": "0f28a58c-a8cb-47dd-8984-d32393311cb4",
+            "name": "helmfile.yml",
+            "reference": "cmVwb3NpdG9yaWVzOgogLSBuYW1lOiBncmFmYW5hCiAgIHVybDogaHR0cHM6Ly9ncmFmYW5hLmdpdGh1Yi5pby9oZWxtLWNoYXJ0cwoKcmVsZWFzZXM6Ci0gbmFtZTogZ3JhZmFuYQogIG5hbWVzcGFjZTogZ3JhZmFuYQogIGNoYXJ0OiBncmFmYW5hL2dyYWZhbmE=",
+            "type": "embedded/base64"
+          }
+        }
+      ],
+      "name": "Bake-embedded-artifact-overrides-key-value",
+      "outputName": "grafana",
+      "overrides": {
+        "replicas": "3"
+      },
+      "refId": "6",
+      "requisiteStageRefIds": ["3"],
+      "templateRenderer": "HELMFILE",
+      "type": "bakeManifest"
+    },
+    {
+      "comments": "This should not throw an error",
+      "completeOtherBranchesThenFail": true,
+      "continuePipeline": false,
+      "expectedArtifacts": [
+        {
+          "defaultArtifact": {
+            "customKind": true,
+            "id": "8bd53029-c86c-4314-8c92-fa17f8e39281"
+          },
+          "displayName": "fast-sheep-93",
+          "id": "074be3c5-2b3e-4d94-9a0a-44d1f90ecdee",
+          "matchArtifact": {
+            "artifactAccount": "embedded-artifact",
+            "customKind": false,
+            "id": "4166ab1c-fb5b-44b9-98c3-334008beffa4",
+            "type": "embedded/base64"
+          },
+          "useDefaultArtifact": false,
+          "usePriorArtifact": false
+        }
+      ],
+      "failPipeline": false,
+      "helmfileFilePath": "helmfile_external.yml",
+      "inputArtifacts": [
+        {
+          "account": "spin_local_gitrepo",
+          "artifact": {
+            "artifactAccount": "spin_local_gitrepo",
+            "id": "ae2d792b-853b-4a75-9caa-6c154ac3a3b7",
+            "reference": "https://github.com/thameezb/test-spinnaker-helmfile.git",
+            "type": "git/repo",
+            "version": "feat/initTests"
+          }
+        }
+      ],
+      "name": "Bake-git-artifact-non-default-path",
+      "outputName": "grafana",
+      "overrides": {},
+      "refId": "11",
+      "requisiteStageRefIds": ["3"],
+      "templateRenderer": "HELMFILE",
+      "type": "bakeManifest"
+    },
+    {
+      "comments": "This should not throw an error",
+      "completeOtherBranchesThenFail": true,
+      "continuePipeline": false,
+      "environment": "test",
+      "expectedArtifacts": [
+        {
+          "defaultArtifact": {
+            "customKind": true,
+            "id": "7f189eb0-bae5-4307-9d94-9d5499fd5112"
+          },
+          "displayName": "tame-mule-89",
+          "id": "55363934-3170-45a1-bf35-06a4403346c2",
+          "matchArtifact": {
+            "artifactAccount": "embedded-artifact",
+            "customKind": false,
+            "id": "89b8c8e6-80fa-4f3a-adad-f051bcdd7caf",
+            "type": "embedded/base64"
+          },
+          "useDefaultArtifact": false,
+          "usePriorArtifact": false
+        }
+      ],
+      "failPipeline": false,
+      "helmfileFilePath": "helmfile_external_env.yml",
+      "inputArtifacts": [
+        {
+          "account": "spin_local_gitrepo",
+          "artifact": {
+            "artifactAccount": "spin_local_gitrepo",
+            "id": "ae2d792b-853b-4a75-9caa-6c154ac3a3b7",
+            "reference": "https://github.com/thameezb/test-spinnaker-helmfile.git",
+            "type": "git/repo",
+            "version": "feat/initTests"
+          }
+        }
+      ],
+      "name": "Bake-git-artifact-environment",
+      "outputName": "grafana",
+      "overrides": {},
+      "refId": "12",
+      "requisiteStageRefIds": ["3"],
+      "templateRenderer": "HELMFILE",
+      "type": "bakeManifest"
+    },
+    {
+      "completeOtherBranchesThenFail": false,
+      "continuePipeline": false,
+      "expectedArtifacts": [
+        {
+          "defaultArtifact": {
+            "customKind": true,
+            "id": "5bb2887a-28d3-49ef-a5fe-cea0e6cca2b9"
+          },
+          "displayName": "old-grasshopper-29",
+          "id": "23be87dc-6c84-429c-8daf-29ac01d006bf",
+          "matchArtifact": {
+            "artifactAccount": "embedded-artifact",
+            "customKind": false,
+            "id": "b8d0d581-de7f-4205-9080-340b81be9e9b",
+            "name": "grafana",
+            "type": "embedded/base64"
+          },
+          "useDefaultArtifact": false,
+          "usePriorArtifact": false
+        }
+      ],
+      "failPipeline": false,
+      "helmfileFilePath": "",
+      "inputArtifacts": [
+        {
+          "account": "spin_local_gitrepo",
+          "artifact": {
+            "artifactAccount": "spin_local_gitrepo",
+            "id": "1098a95e-289d-40dc-8168-d7a1740f3f9d",
+            "reference": "https://github.com/thameezb/test-spinnaker-helmfile.git",
+            "type": "git/repo",
+            "version": "feat/initTests"
+          }
+        }
+      ],
+      "name": "Bake-git-artifact-default",
+      "outputName": "grafana",
+      "overrides": {},
+      "refId": "13",
+      "requisiteStageRefIds": ["3"],
+      "templateRenderer": "HELMFILE",
+      "type": "bakeManifest"
+    },
+    {
+      "comments": "This should not throw an error",
+      "completeOtherBranchesThenFail": true,
+      "continuePipeline": false,
+      "expectedArtifacts": [
+        {
+          "defaultArtifact": {
+            "customKind": true,
+            "id": "8bd53029-c86c-4314-8c92-fa17f8e39281"
+          },
+          "displayName": "fast-sheep-93",
+          "id": "074be3c5-2b3e-4d94-9a0a-44d1f90ecdee",
+          "matchArtifact": {
+            "artifactAccount": "embedded-artifact",
+            "customKind": false,
+            "id": "4166ab1c-fb5b-44b9-98c3-334008beffa4",
+            "name": "nginx",
+            "type": "embedded/base64"
+          },
+          "useDefaultArtifact": false,
+          "usePriorArtifact": false
+        }
+      ],
+      "failPipeline": false,
+      "helmfileFilePath": "internal/helmfile.yaml",
+      "inputArtifacts": [
+        {
+          "account": "spin_local_gitrepo",
+          "artifact": {
+            "artifactAccount": "spin_local_gitrepo",
+            "id": "ae2d792b-853b-4a75-9caa-6c154ac3a3b7",
+            "location": "internal",
+            "reference": "https://github.com/thameezb/test-spinnaker-helmfile.git",
+            "type": "git/repo",
+            "version": "feat/initTests"
+          }
+        }
+      ],
+      "name": "Bake-git-artifact-internal-default",
+      "outputName": "nginx",
+      "overrides": {},
+      "refId": "14",
+      "requisiteStageRefIds": ["3"],
+      "templateRenderer": "HELMFILE",
+      "type": "bakeManifest"
+    },
+    {
+      "comments": "This should not throw an error",
+      "completeOtherBranchesThenFail": true,
+      "continuePipeline": false,
+      "environment": "helmfile",
+      "expectedArtifacts": [
+        {
+          "defaultArtifact": {
+            "customKind": true,
+            "id": "8bd53029-c86c-4314-8c92-fa17f8e39281"
+          },
+          "displayName": "fast-sheep-93",
+          "id": "074be3c5-2b3e-4d94-9a0a-44d1f90ecdee",
+          "matchArtifact": {
+            "artifactAccount": "embedded-artifact",
+            "customKind": false,
+            "id": "4166ab1c-fb5b-44b9-98c3-334008beffa4",
+            "name": "nginx",
+            "type": "embedded/base64"
+          },
+          "useDefaultArtifact": false,
+          "usePriorArtifact": false
+        }
+      ],
+      "failPipeline": false,
+      "helmfileFilePath": "internal/helmfile_internal.yml",
+      "inputArtifacts": [
+        {
+          "account": "spin_local_gitrepo",
+          "artifact": {
+            "artifactAccount": "spin_local_gitrepo",
+            "id": "ae2d792b-853b-4a75-9caa-6c154ac3a3b7",
+            "location": "internal",
+            "reference": "https://github.com/thameezb/test-spinnaker-helmfile.git",
+            "type": "git/repo",
+            "version": "feat/initTests"
+          }
+        }
+      ],
+      "name": "Bake-git-artifact-internal-non-use-env",
+      "outputName": "nginx",
+      "overrides": {},
+      "refId": "15",
+      "requisiteStageRefIds": ["3"],
+      "templateRenderer": "HELMFILE",
+      "type": "bakeManifest"
+    },
+    {
+      "comments": "This should not throw an error",
+      "completeOtherBranchesThenFail": true,
+      "continuePipeline": false,
+      "expectedArtifacts": [
+        {
+          "defaultArtifact": {
+            "customKind": true,
+            "id": "8bd53029-c86c-4314-8c92-fa17f8e39281"
+          },
+          "displayName": "fast-sheep-93",
+          "id": "074be3c5-2b3e-4d94-9a0a-44d1f90ecdee",
+          "matchArtifact": {
+            "artifactAccount": "embedded-artifact",
+            "customKind": false,
+            "id": "4166ab1c-fb5b-44b9-98c3-334008beffa4",
+            "name": "nginx",
+            "type": "embedded/base64"
+          },
+          "useDefaultArtifact": false,
+          "usePriorArtifact": false
+        }
+      ],
+      "failPipeline": false,
+      "helmfileFilePath": "internal/helmfile_deployCRDs.yml",
+      "includeCRDs": true,
+      "inputArtifacts": [
+        {
+          "account": "spin_local_gitrepo",
+          "artifact": {
+            "artifactAccount": "spin_local_gitrepo",
+            "id": "ae2d792b-853b-4a75-9caa-6c154ac3a3b7",
+            "location": "internal",
+            "reference": "https://github.com/thameezb/test-spinnaker-helmfile.git",
+            "type": "git/repo",
+            "version": "feat/initTests"
+          }
+        }
+      ],
+      "name": "Bake-git-artifact-internal-with-crds",
+      "outputName": "nginx",
+      "overrides": {},
+      "refId": "16",
+      "requisiteStageRefIds": ["3"],
+      "templateRenderer": "HELMFILE",
+      "type": "bakeManifest"
+    },
+    {
+      "comments": "This should not throw an error",
+      "completeOtherBranchesThenFail": true,
+      "continuePipeline": false,
+      "expectedArtifacts": [
+        {
+          "defaultArtifact": {
+            "customKind": true,
+            "id": "8bd53029-c86c-4314-8c92-fa17f8e39281"
+          },
+          "displayName": "fast-sheep-93",
+          "id": "074be3c5-2b3e-4d94-9a0a-44d1f90ecdee",
+          "matchArtifact": {
+            "artifactAccount": "embedded-artifact",
+            "customKind": false,
+            "id": "4166ab1c-fb5b-44b9-98c3-334008beffa4",
+            "name": "nginx",
+            "type": "embedded/base64"
+          },
+          "useDefaultArtifact": false,
+          "usePriorArtifact": false
+        }
+      ],
+      "failPipeline": false,
+      "helmfileFilePath": "internal/envs/embedded/helmfile_multiplevalues.yml",
+      "inputArtifacts": [
+        {
+          "account": "spin_local_gitrepo",
+          "artifact": {
+            "artifactAccount": "spin_local_gitrepo",
+            "id": "ae2d792b-853b-4a75-9caa-6c154ac3a3b7",
+            "location": "internal/envs/embedded",
+            "reference": "https://github.com/thameezb/test-spinnaker-helmfile.git",
+            "type": "git/repo",
+            "version": "feat/initTests"
+          }
+        }
+      ],
+      "name": "Bake-git-artifact-internal-with-multiple-values",
+      "outputName": "nginx",
+      "overrides": {},
+      "refId": "17",
+      "requisiteStageRefIds": ["3"],
+      "templateRenderer": "HELMFILE",
+      "type": "bakeManifest"
+    },
+    {
+      "comments": "This should not throw an error",
+      "completeOtherBranchesThenFail": true,
+      "continuePipeline": false,
+      "expectedArtifacts": [
+        {
+          "defaultArtifact": {
+            "customKind": true,
+            "id": "8bd53029-c86c-4314-8c92-fa17f8e39281"
+          },
+          "displayName": "fast-sheep-93",
+          "id": "074be3c5-2b3e-4d94-9a0a-44d1f90ecdee",
+          "matchArtifact": {
+            "artifactAccount": "embedded-artifact",
+            "customKind": false,
+            "id": "4166ab1c-fb5b-44b9-98c3-334008beffa4",
+            "name": "nginx",
+            "type": "embedded/base64"
+          },
+          "useDefaultArtifact": false,
+          "usePriorArtifact": false
+        }
+      ],
+      "failPipeline": false,
+      "helmfileFilePath": "internal/helmfile.yaml",
+      "inputArtifacts": [
+        {
+          "account": "spin_local_gitrepo",
+          "artifact": {
+            "artifactAccount": "spin_local_gitrepo",
+            "id": "ae2d792b-853b-4a75-9caa-6c154ac3a3b7",
+            "location": "internal",
+            "reference": "https://github.com/thameezb/test-spinnaker-helmfile.git",
+            "type": "git/repo",
+            "version": "feat/initTests"
+          }
+        },
+        {
+          "account": "spin_local",
+          "artifact": {
+            "artifactAccount": "spin_local",
+            "id": "a8456c9f-ec4d-422c-9ecd-a4f48479f2e7",
+            "name": "internal/envs/helmfile/values.yml",
+            "reference": "https://api.github.com/repos/thameezb/test-spinnaker-helmfile/contents/internal/envs/helmfile/values.yml",
+            "type": "github/file",
+            "version": "feat/initTests"
+          }
+        }
+      ],
+      "name": "Bake-git-artifact-override-artifact",
+      "outputName": "nginx",
+      "overrides": {},
+      "refId": "18",
+      "requisiteStageRefIds": ["3"],
+      "templateRenderer": "HELMFILE",
+      "type": "bakeManifest"
+    }
+  ],
+  "triggers": [],
+  "updateTs": "1685977247000"
+}
